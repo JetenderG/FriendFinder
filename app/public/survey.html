@@ -127,7 +127,7 @@
                 ]
             };
             console.log(newFriend);
-            $.post("/app/friends", newFriend)
+            $.post("/api/friends", newFriend)
                 .then(function (data) {
                     console.log(data)
                     alert("Complete")

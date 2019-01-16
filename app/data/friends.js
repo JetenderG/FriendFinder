@@ -1,20 +1,28 @@
-var express = require("express");
-var path = require("path");
+var data = require("../routing/apiRoutes")
+var possFriends = [];
+
+possFriends.push(data.newfriend)
 
 
+module.exports = {
 
-var app = express()
+    possFriends: possFriends
+}
+
+/*module.exports = function (app) {
+
+    app.post("/app/data/friends", function (req, res) {
+
+        var friend = req.body;
+
+        possFriends.push(friend);
+        console.log(possFriends);
+        console.log("GIID");
+
+        // res.sendFile(path.join(__dirname, "./app/data/friends.js"));
+
+    })
 
 
-
-
-app.post("/app/friends", function (req, res) {
-
-    var friend = req.body;
-
-    console.log(friend);
-
-
-    // res.sendFile(path.join(__dirname, "./app/data/friends.js"));
-
-});
+}
+*/
