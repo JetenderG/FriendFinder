@@ -123,9 +123,10 @@
                     $("input[name=questionseven]:checked").val(),
                     $("input[name=questioneight]:checked").val(),
                     $("input[name=questionnine]:checked").val(),
-                    $("input[name=questionten]:checked").val(),
+                    $("input[name=questionten]:checked").val()
                 ]
             };
+
             console.log(newFriend);
             $.post("/api/friends", newFriend)
                 .then(function (data) {
