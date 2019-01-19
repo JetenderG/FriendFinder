@@ -10,7 +10,8 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 possfriends = [];
-
+var totaldifference = 0;
+var arrTD= [];
 
 module.exports = function (app) {
     app.get("/api/friends", function (req, res) {
@@ -37,24 +38,26 @@ module.exports = function (app) {
 
             if (data.length === 0) {
 
-                possfriends.push(data)
-            } else {
+                [].push.apply(possfriends, datalist);            } else {
                 var datalist = JSON.parse(data);
+            [].push.apply(possfriends, datalist);
 
-
-                datalist.forEach(function (items) {
-                    possfriends.push(datalist)
-
-                })
-                possfriends.push(datalist);
             }
 
-            possfriends.forEach(function (item) {
+            datalist.forEach(function (item){
+                    var friend = item.score;
+                    var search = newfriend.score;
+                    totaldifference = 0;
+                    for (var i = 0; i < friend.length; i++){
 
+                    
+                        
+                        console.log(parseInt(friend[i]) + parseInt(search[i]));
+                        
+                    }
 
             })
-            var survey = JSON.stringify(data);
-            console.log("Survey :" + survey);
+          //  console.log("Survey :" + survey);
             console.log("data :" + (datalist));
             console.log("array :" + (possfriends));
 
