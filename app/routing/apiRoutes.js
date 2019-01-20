@@ -11,9 +11,16 @@ app.use(express.json());
 
 possfriends = [];
 var totaldifference = 0;
-var arrTD= [];
+var arrTD = [];
 
 module.exports = function (app) {
+
+
+
+
+
+
+
     app.get("/api/friends", function (req, res) {
 
         fs.readFile("app/data/friends.js", "utf8", function (err, response) {
@@ -21,6 +28,12 @@ module.exports = function (app) {
             if (err) throw err;
             var results = JSON.parse(response);
             res.send(results);
+
+
+
+
+
+
             //console.log(JSON.parse(response))
         })
     })
@@ -38,26 +51,30 @@ module.exports = function (app) {
 
             if (data.length === 0) {
 
-                [].push.apply(possfriends, datalist);            } else {
+                [].push.apply(possfriends, datalist);
+            } else {
                 var datalist = JSON.parse(data);
-            [].push.apply(possfriends, datalist);
+                [].push.apply(possfriends, datalist);
 
             }
 
-            datalist.forEach(function (item){
-                    var friend = item.score;
-                    var search = newfriend.score;
-                    totaldifference = 0;
-                    for (var i = 0; i < friend.length; i++){
+            datalist.forEach(function (item) {
 
-                    
-                        
-                        console.log(parseInt(friend[i]) + parseInt(search[i]));
-                        
-                    }
+                arrTD.push(totaldifference)
+                console.log(arrTD);
+                var friend = item.score;
+                var search = newfriend.score;
+
+                totaldifference = 0;
+                for (var i = 0; i < friend.length; i++) {
+
+
+                    totaldifference = totaldifference + Math.abs(parseInt(item[i]) - parseInt(search[i]));
+
+                }
 
             })
-          //  console.log("Survey :" + survey);
+            //  console.log("Survey :" + survey);
             console.log("data :" + (datalist));
             console.log("array :" + (possfriends));
 
