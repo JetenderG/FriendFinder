@@ -1,4 +1,3 @@
-o
 <!DOCTYPE html>
 
 <html>
@@ -19,10 +18,10 @@ o
     <div class="container">
         <div class="row">
             <label>Name:</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" style="margin-bottom:20px">
         </div>
-        <div class="row">
-            <h3>You perfer to stay at home then go outside</h3>
+        <div class="row" style="height : 40px margin = 20px">
+            <h4>You perfer to stay at home then go outside</h4>
             <input type="radio" value="1" name="questionone">Strongly disaggree</button>
             <input type="radio" value="2" name="questionone">disagree</button>
             <input type="radio" value="3" name="questionone">netural</button>
@@ -30,7 +29,7 @@ o
             <input type="radio" value="5" name="questionone">strongly agree</button>
 
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <h3></h3>
             <input type="radio" value="1" name="questiontwo">Strongly disaggree</button>
             <input type="radio" value="2" name="questiontwo">disagree</button>
@@ -38,56 +37,56 @@ o
             <input type="radio" value="4" name="questiontwo">agree</button>
             <input type="radio" value="5" name="questiontwo">strongly agree</button>
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <input type="radio" value="1" name="questionthree">Strongly disaggree</button>
             <input type="radio" value="2" name="questionthree">disagree</button>
             <input type="radio" value="3" name="questionthree">netural</button>
             <input type="radio" value="4" name="questionthree">agree</button>
             <input type="radio" value="5" name="questionthree">strongly agree</button>
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <input type="radio" value="1" name="questionfour">Strongly disaggree</button>
             <input type="radio" value="2" name="questionfour">disagree</button>
             <input type="radio" value="3" name="questionfour">netural</button>
             <input type="radio" value="4" name="questionfour">agree</button>
             <input type="radio" value="5" name="questionfour">strongly agree</button>
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <input type="radio" value="1" name="questionfive">Strongly disaggree</button>
             <input type="radio" value="2" name="questionfive">disagree</button>
             <input type="radio" value="3" name="questionfive">netural</button>
             <input type="radio" value="4" name="questionfive">agree</button>
             <input type="radio" value="5" name="questionfive">strongly agree</button>
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <input type="radio" value="1" name="questionsix">Strongly disaggree</button>
             <input type="radio" value="2" name="questionsix">disagree</button>
             <input type="radio" value="3" name="questionsix">netural</button>
             <input type="radio" value="4" name="questionsix">agree</button>
             <input type="radio" value="5" name="questionsix">strongly agree</button>
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <input type="radio" value="1" name="questionseven">Strongly disaggree</button>
             <input type="radio" value="2" name="questionseven">disagree</button>
             <input type="radio" value="3" name="questionseven">netural</button>
             <input type="radio" value="4" name="questionseven">agree</button>
             <input type="radio" value="5" name="questionseven">strongly agree</button>
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <input type="radio" value="1" name="questioneight">Strongly disaggree</button>
             <input type="radio" value="2" name="questioneight">disagree</button>
             <input type="radio" value="3" name="questioneight">netural</button>
             <input type="radio" value="4" name="questioneight">agree</button>
             <input type="radio" value="5" name="questioneight">strongly agree</button>
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <input type="radio" value="1" name="questionnine">Strongly disaggree</button>
             <input type="radio" value="2" name="questionnine">disagree</button>
             <input type="radio" value="3" name="questionnine">netural</button>
             <input type="radio" value="4" name="questionnine">agree</button>
             <input type="radio" value="5" name="questionnine">strongly agree</button>
         </div>
-        <div class="row">
+        <div class="row" style="height : 40px margin = 20px">
             <input type="radio" value="1" name="questionten">Strongly disaggree</button>
             <input type="radio" value="2" name="questionten">disagree</button>
             <input type="radio" value="3" name="questionten">netural</button>
@@ -130,7 +129,7 @@ o
             };
 
             console.log(newFriend);
-            $.post("/survey", newFriend)
+            $.post("/api/friends", newFriend)
                 .then(function (data) {
                     console.log(data)
                     alert("Complete")

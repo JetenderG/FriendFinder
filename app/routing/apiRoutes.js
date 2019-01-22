@@ -13,13 +13,33 @@ possfriends = [];
 var totaldifference = 0;
 var arrTD = [];
 
+
+function totaldiff(score, userS) {
+    var total = 0;
+
+    for (var i = 0; i = 11; i++) {
+        // for loop repeat until it get the total
+        // until the loop end 
+
+        if (i === 10) {
+
+            arrTD.push(total)
+            console.log(arrTD)
+        } else {
+            total += diff;
+
+            var diff = Math.abs(parseInt(score[i]) + Math.abs(parseInt(userS[i])))
+
+
+        }
+
+
+    }
+
+
+}
+
 module.exports = function (app) {
-
-
-
-
-
-
 
     app.get("/api/friends", function (req, res) {
 
@@ -58,25 +78,42 @@ module.exports = function (app) {
 
             }
 
+
+
             datalist.forEach(function (item) {
 
-                arrTD.push(totaldifference)
-                console.log(arrTD);
+                total = 0;
                 var friend = item.score;
                 var search = newfriend.score;
-
-                totaldifference = 0;
-                for (var i = 0; i < friend.length; i++) {
+                // totaldifference += total;
 
 
-                    totaldifference = totaldifference + Math.abs(parseInt(item[i]) - parseInt(search[i]));
+                totaldiff(friend, search);
 
-                }
+                /* totaldifference = 7;
+                    console.log(friend + "   " + search)
+                    totaldifference = 0;
+                    for (var i = 0; i < 11; i++) {
 
+
+                        total = (parseInt(friend[i]) + parseInt(search[i]))
+
+                        arrTD.push(total);
+
+                    }
+*/
             })
+
+
+
+
+
+
+            console.log(arrTD);
+
             //  console.log("Survey :" + survey);
-            console.log("data :" + (datalist));
-            console.log("array :" + (possfriends));
+            // console.log("data :" + (datalist));
+            //console.log("array :" + (possfriends));
 
             fs.writeFile("app/data/friends.js", JSON.stringify(possfriends), function (err, response) {
                 if (err) throw err;
@@ -91,11 +128,5 @@ module.exports = function (app) {
 
         });
 
-
-
-        //   var totaldifference;
-
-        console.log(newfriend)
-
-    });
+    })
 }
