@@ -14,29 +14,13 @@ var totaldifference = 0;
 var arrTD = [];
 
 
-function totaldiff(score, userS) {
-    var total = 0;
+function totaldiff(array) {
+    var matchV = Math.min.apply(null, array);
+    console.log(matchV)
+    var matchF = array.indexOf(matchV);
+    console.log(matchF);
 
-    for (var i = 0; i = 11; i++) {
-        // for loop repeat until it get the total
-        // until the loop end 
-
-        if (i === 10) {
-
-            arrTD.push(total)
-            console.log(arrTD)
-        } else {
-            total += diff;
-
-            var diff = Math.abs(parseInt(score[i]) + Math.abs(parseInt(userS[i])))
-
-
-        }
-
-
-    }
-
-
+    return matchF;
 }
 
 module.exports = function (app) {
@@ -47,7 +31,6 @@ module.exports = function (app) {
 
             if (err) throw err;
             var results = JSON.parse(response);
-            res.send(results);
 
 
 
@@ -59,57 +42,53 @@ module.exports = function (app) {
     })
 
     app.post("/api/friends", function (req, res) {
-
         var newfriend = req.body;
-
         possfriends.push(newfriend);
-
-
-
         fs.readFile("app/data/friends.js", "utf8", function (err, data) {
             if (err) throw err;
 
             if (data.length === 0) {
-
                 [].push.apply(possfriends, datalist);
             } else {
                 var datalist = JSON.parse(data);
                 [].push.apply(possfriends, datalist);
 
-            }
+                datalist.forEach(function (item) {
+                    console.log(arrTD);
+                    var total = 0;
+                    var friend = item.score;
+                    var search = newfriend.score;
+                    for (var i = 0; i < search.length + 1; i++) {
+                        if (i === 9) {
+                            var diff = (parseInt(friend[i]) - parseInt(search[i]))
+                            total += Math.abs(diff)
+                            // console.log(total);
 
-
-
-            datalist.forEach(function (item) {
-
-                total = 0;
-                var friend = item.score;
-                var search = newfriend.score;
-                // totaldifference += total;
-
-
-                totaldiff(friend, search);
-
-                /* totaldifference = 7;
-                    console.log(friend + "   " + search)
-                    totaldifference = 0;
-                    for (var i = 0; i < 11; i++) {
-
-
-                        total = (parseInt(friend[i]) + parseInt(search[i]))
-
-                        arrTD.push(total);
+                            arrTD.push((total))
+                            // arrTD.push(total);
+                        } else {
+                            var diff = (parseInt(friend[i]) - parseInt(search[i]))
+                            total += Math.abs(diff)
+                            //  console.log(total + "         nlnn;");
+                        }
 
                     }
-*/
-            })
+
+                })
 
 
 
-
-
+            }
 
             console.log(arrTD);
+            var match = totaldiff(arrTD);
+            res.send(datalist[match].name)
+            // console.log(arrTD);
+
+
+
+
+
 
             //  console.log("Survey :" + survey);
             // console.log("data :" + (datalist));
