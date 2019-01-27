@@ -15,6 +15,8 @@ var arrTD = [];
 
 
 function totaldiff(array) {
+
+    console.log(array);
     var matchV = Math.min.apply(null, array);
     console.log(matchV)
     var matchF = array.indexOf(matchV);
@@ -33,7 +35,7 @@ module.exports = function (app) {
             var results = JSON.parse(response);
 
 
-
+            res.json(results);
 
 
 
@@ -58,17 +60,18 @@ module.exports = function (app) {
                     var total = 0;
                     var friend = item.score;
                     var search = newfriend.score;
-                    for (var i = 0; i < search.length + 1; i++) {
+                    for (var i = 0; i < search.length; i++) {
                         if (i === 9) {
                             var diff = (parseInt(friend[i]) - parseInt(search[i]))
                             total += Math.abs(diff)
                             // console.log(total);
 
-                            arrTD.push((total))
+                            arrTD.push(total)
                             // arrTD.push(total);
                         } else {
                             var diff = (parseInt(friend[i]) - parseInt(search[i]))
                             total += Math.abs(diff)
+                            console.log(i + "   " + total)
                             //  console.log(total + "         nlnn;");
                         }
 
@@ -81,8 +84,13 @@ module.exports = function (app) {
             }
 
             console.log(arrTD);
+
             var match = totaldiff(arrTD);
             res.send(datalist[match].name)
+            console.log(match.datalist);
+
+
+
             // console.log(arrTD);
 
 

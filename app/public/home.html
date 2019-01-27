@@ -14,7 +14,7 @@
 <body>
     <div class="jumbotron">
         <h2>Find a Friend</h2>
-        <p class="opline">We help to introduces people with other people with similar formlity and personality.</p>
+        <p class="online">We help to introduces people with other people with similar formlity and personality.</p>
         <hr>
         <p>Click on the button to get started!!</p>
         <button id="send">Survey</button>
@@ -22,7 +22,12 @@
 </body>
 
 <script>
+    $("send").on("click", function (event) {
 
+        var url = window.location.href + "survey"
+
+        return url;
+    });
 </script>
 
 
