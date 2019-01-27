@@ -7,6 +7,8 @@
     <title>Survey</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
 </header>
 
 
@@ -17,17 +19,16 @@
         <p class="online">We help to introduces people with other people with similar formlity and personality.</p>
         <hr>
         <p>Click on the button to get started!!</p>
-        <button id="send">Survey</button>
+        <button id="send" onclick="survey()">Survey</button>
     </div>
 </body>
 
 <script>
-    $("send").on("click", function (event) {
-
+    function survey() {
         var url = window.location.href + "survey"
-
-        return url;
-    });
+        console.log(url)
+        window.location.assign(url)
+    }
 </script>
 
 
