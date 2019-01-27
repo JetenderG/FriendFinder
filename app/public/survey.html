@@ -21,6 +21,10 @@
         <div class="row">
             <label>Name:</label>
             <input type="text" name="name" id="name" style="margin-bottom:20px">
+            <div class="row">
+                <label>Images:</label>
+                <input type="text" name="image" id="imgLink" style="margin-bottom:20px">
+            </div>
         </div>
         <div class="row" style="height : 40px margin = 20px">
             <h4>You perfer to stay at home then go outside</h4>
@@ -110,13 +114,13 @@
 </body>
 <script type="text/javascript">
     $("#submitbtn").on("click", function (event) {
-        var friend = $("#name").val();
-
+        var friend = $("#name").val().trim();
+        var img = $("imgLink").val().trim();
         console.log($("#name").val());
         event.preventDefault();
         var name = "questionone" && "questiontwo" && "questionthree" && "questionfour" && "questionfive" ||
             "questionsix" && "questionseven" && "questioneight" && "questionnine" && "questionten"
-        if (!$("input[name =" + name + "]").is(":checked") || friend == '') {
+        if (!$("input[name =" + name + "]").is(":checked") || friend == '' || img == "") {
 
             alert("Please Fill the Survey")
         } else {
@@ -124,6 +128,7 @@
 
             var newFriend = {
                 name: friend,
+                img: img,
                 score: [
                     $("input[name=questionone]:checked").val(),
                     $("input[name=questiontwo]:checked").val(),
