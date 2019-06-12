@@ -36,4 +36,5 @@ app.post("/app/friends", function (req, res) {
 */
 app.listen(PORT, function () {
     console.log("App listening into PORT: " + PORT);
+    console.log("http://localhost:" + PORT)
 })
